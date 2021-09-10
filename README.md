@@ -1,4 +1,4 @@
-# CPPND: Capstone Snake Game Example
+# CPPND: Capstone BrickBreaker
 
 
 ## Dependencies for Running Locally
