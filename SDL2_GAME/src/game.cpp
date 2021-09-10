@@ -25,15 +25,19 @@ Game::~Game()
 
 void Game::InitializeDataPath() {
 char *base_path = SDL_GetBasePath();
-if (base_path) {
-      
-      std::string sub_path(base_path);
-      std::string delimiter;
-      delimiter ="/SDL2_GAME";
-      _data_path = sub_path.substr(0,sub_path.find(delimiter));
-      _data_path += "/SDL2_GAME/src/assets/";
-      
-      
+    if (base_path) {
+        
+        std::string sub_path(base_path);
+        std::string delimiter;
+        delimiter ="/SDL2_GAME";
+        _data_path = sub_path.substr(0,sub_path.find(delimiter));
+        _data_path += "/SDL2_GAME/src/assets/";
+        
+        
+        }
+    else{
+
+        std::cout<<"No such path to assets"<<std::endl;
     } 
 }
 
@@ -58,8 +62,8 @@ void Game::init(const char* title, int xpos, int ypos, int height, int width, bo
         if(renderer)
         {
             std::cout<<"Rendering"<<std::endl;
+            SDL_SetRenderDrawColor(renderer,255,255,255,255);
         }
-
         _isrunning= true; //defualt true 
 
     }
@@ -67,6 +71,36 @@ void Game::init(const char* title, int xpos, int ypos, int height, int width, bo
     _ball->setVelocity(1,1);
     _bat = new GameObject(_data_path+bat_bmp,300,450,50,20);
     _map = new Map(_data_path+map_bmp,0,0,640,480);
+    _wall = new GameObject("",0,0,0,0); //all walls
+    _lowerWall = new GameObject("",0,0,0,0); //lower walls
+    _win = new GameObject(_data_path+win_bmp,170,150,300,150); //win
+    _lose = new GameObject(_data_path+lose_bmp,170,150,300,150); //lose
+    
+
+    //create a vector of bricks pointer obj game object
+    for(int numb_of_bricks =0; numb_of_bricks<12; numb_of_bricks++)
+    {
+
+        _brick = new GameObject(_data_path+brick_bmp,25,25,85,35); //x=25, y =50 first brick location
+        if(numb_of_bricks<6)
+        {
+            _brick->destRect.x = spacing_x;
+            spacing_x+= 100;  
+            
+        }
+        if(numb_of_bricks<12 && numb_of_bricks>5)
+        {
+        
+            _brick->destRect.y = 100;
+            spacing_x-=100;
+            _brick->destRect.x = spacing_x;
+
+        }
+
+        _bricks.push_back(_brick);
+
+    }
+    
 
 }
 
@@ -76,32 +110,70 @@ bool Game::running()
 }
 
 void Game::update()
-{   
+{      
+        if(number_of_bricks_dest <12)
+        {
+            brick_dest = false;
+            _ball->Object_Dynamics(); //Ball movement 
+            brick_dest=_wall->Collision_Detection(_ball, collisionType::walls);
+            brick_dest=_bat->Collision_Detection(_ball, collisionType::bat);
+            brick_dest=_lowerWall->Collision_Detection(_ball,collisionType::bottom_wall);
+            if(brick_dest == true)
+            {
+                //std::cout<<"You Lose"<<std::endl;
+                game_lost = true;
+            }
 
-    //Ball movement 
-    _ball->Object_Dynamics();
-    //Collision with bat
-    bool state=_ball->Collision_Detection(_bat);
-    // should be passing the obj to be collided 
-    //if collided move brick outside the screen
-    //if collided with wall bounce 
-    //if collided with bottom lose
-    //Collison with wall 
-    //Collision with bricks
+            for(int i =0; i<12; i++)
+            {
+            
+                brick_dest=_bricks[i]->Collision_Detection(_ball,collisionType::brick);
+                if(brick_dest == true)
+                {
+                    number_of_bricks_dest++;
+                    std::cout<<"Game Score:"<<number_of_bricks_dest<<std::endl;
+                    brick_dest = false; //reset
+                }
+            }
 
+
+        }
+        else if(number_of_bricks_dest==12)
+        {
+            //std::cout<<"You Win"<<std::endl;
+            //Pause game
+        }
+
+       
 
 }
 
 
 void Game::render()
-{
-
+{    
     _map->Render();
-    _ball->Render();
     _bat->Render();
+    _ball->Render();
+    for(int i =0; i<12; i++)
+    {
+     _bricks[i]->Render();
+    }
+    if(number_of_bricks_dest ==12)
+    {
+         _win->Render();
+    }
+    if(game_lost == true)
+    {
+        _lose->Render();
+    }
     SDL_RenderPresent(renderer);
-    SDL_RenderClear(renderer); //clear screen
+}
 
+
+
+void Game::clear()
+{
+    SDL_RenderClear(renderer); //clear screen
 }
 
 void Game::handlerEvents()

@@ -13,6 +13,7 @@
 #include<unistd.h>
 #include <string.h>
 #include <fstream>
+#include <vector>
 
 class GameObject;  //forward declaration
 
@@ -33,21 +34,41 @@ class Game {
     void render(); //drawing of game images
     void handlerEvents(); //handle key-mouse events
     bool running(); 
+    void clear();
 
     static SDL_Renderer *renderer;
+
+    bool brick_dest {false};
+    bool game_lost{false};
+    int number_of_bricks_dest {0};
     
    
  
  private:
     void InitializeDataPath();
     bool _isrunning;
+
     std::string _data_path;
     std::string ball_bmp {"ball.bmp"};
     std::string bat_bmp {"bat.bmp"};
     std::string map_bmp {"bk.bmp"};
+    std::string brick_bmp {"brick.bmp"};
+    std::string win_bmp {"win.bmp"};
+    std::string lose_bmp {"lose.bmp"};
+
+    int spacing_x {25};
+    int spacing_y {0};
+
     SDL_Window *window; //creating a pointer of obj SDL_Window
+
     GameObject *_ball;
     GameObject *_bat;
+    GameObject *_wall;
+    GameObject *_lowerWall;
+    GameObject *_brick;
+    GameObject *_win;
+    GameObject *_lose;
+    std::vector<GameObject*> _bricks;
     Map *_map;
     
    

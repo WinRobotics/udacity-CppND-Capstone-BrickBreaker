@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
   {
 
     frameStart = SDL_GetTicks();
-
+    
+    game.clear();
     game.handlerEvents();
     game.update();
     game.render();
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
     {
       SDL_Delay(frameDelay-frameDuration);
     }
-
+    
   }
 
   return 0;
