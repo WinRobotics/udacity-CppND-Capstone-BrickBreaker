@@ -16,6 +16,17 @@ Game::~Game()
     SDL_DestroyRenderer(renderer);
     delete _ball;
     delete _map;
+    delete _bat;
+    delete _win;
+    delete _lose;
+    delete _wall;
+    delete _lowerWall;
+
+    for(int i=0;i<12;i++)
+    {
+        delete _brick; // delete all bricks
+    }
+
     SDL_QUIT;
     std::cout<<"Game Quit"<<std::endl;
     
@@ -140,7 +151,6 @@ void Game::update()
         }
         else if(number_of_bricks_dest==12)
         {
-            //std::cout<<"You Win"<<std::endl;
             //Pause game
         }
 

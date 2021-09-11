@@ -6,7 +6,7 @@
 //Change to using Get/Set 
 GameObject::GameObject(std::string texturesheet, int x, int y, int width, int height)
 {
-   
+   //TODO: Change to init list
     _objTexture = TextureManager::LoadTexture(texturesheet);
     destRect.x =x;
     destRect.y =y;
@@ -18,7 +18,7 @@ GameObject::GameObject(std::string texturesheet, int x, int y, int width, int he
 
 GameObject::~GameObject()
 {
-   
+   SDL_DestroyTexture(_objTexture);
 };
 
 
