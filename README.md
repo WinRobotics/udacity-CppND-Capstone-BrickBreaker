@@ -39,4 +39,22 @@ The goal of the game is to break all the bricks by bouncing the ball off the bat
 4. Run it: `./NewGame`.
 
 
+* :pushpin:**Rubric Points addressed:**
+
+> **1. Loops, Functions, I/O**
+> * ✔️ The project demonstrates an understanding of C++ functions and control structures. <Throughout the code base>
+> * ✔️ The project reads data from a file and process the data, or the program writes data to a file. <See void Game::InitializeDataPath() line 26 in game.cpp>
+> * ✔️ The project accepts user input and processes the input. <See void Game::handlerEvents() line 179 in game.cpp>
+
+> **2. Object Oriented Programming**
+> * ✔️ The project uses Object Oriented Programming techniques. <From the directory of the folder>
+> * ✔️ Classes use appropriate access specifiers for class members. <From the various class code>
+> * ✔️ Classes encapsulate behavior.
+
+> **3. Memory Management**
+> * ✔️ The project uses destructors appropriately.
+
+
+
+
 
