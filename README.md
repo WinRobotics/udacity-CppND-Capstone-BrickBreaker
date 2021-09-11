@@ -39,8 +39,9 @@ https://user-images.githubusercontent.com/53950231/132941806-81515629-10cf-4e00-
 
 1. Clone this repo.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./NewGame`.
+3. Install SDL Image library using `apt install libsdl2-image-dev`
+4. Compile: `cmake .. && make`
+5. Run it: `./NewGame`.
 
 
 * :pushpin:**Rubric Points addressed:**
