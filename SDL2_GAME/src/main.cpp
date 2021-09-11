@@ -5,8 +5,8 @@
 
 int main(int argc, char *argv[])
 {
-  const int FPS = 60; //frame rate
-  const int frameDelay = 1000/60; //framedelay
+  const int FPS = 80; //frame rate
+  const int frameDelay = 1000/80; //framedelay
 
   Uint32 frameStart;
   int frameDuration;

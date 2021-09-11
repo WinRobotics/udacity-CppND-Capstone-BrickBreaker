@@ -27,7 +27,7 @@ void GameObject::Render()
 {
     
     SDL_RenderCopy(Game::renderer,_objTexture,NULL,&destRect); //Render obj onto the screen
-    SDL_RenderPresent(Game::renderer);
+    
 }
 
 int GameObject::Collision_Detection(GameObject*& obj,collisionType item)

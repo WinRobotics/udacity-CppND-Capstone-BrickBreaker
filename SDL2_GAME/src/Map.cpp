@@ -14,11 +14,11 @@ Map::Map(std::string texturesheet, int x, int y, int width, int height)
 
 Map::~Map()
 {
-    
+    SDL_DestroyTexture(_mapTexture);
 }
 
 void Map::Render()
 {
     SDL_RenderCopy(Game::renderer,_mapTexture,NULL,&_mapRect); //Render the playertex onto the screen
-    SDL_RenderPresent(Game::renderer);
+    
 }
