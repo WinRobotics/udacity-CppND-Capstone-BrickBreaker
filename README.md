@@ -2,6 +2,15 @@
 
 The game was created using a tutorial that i learnt from Udemy, it tries to simulate a classical 2D game known as brickbreaker. However, during the tutorial the code was written in a procedural manner without any OOP or using modern C++ techniques that was taught in Udacity. I really wanted to practice and push myself beyond my comfort level and practice as much as what i have learnt. My attempt was to create the game from scratch in a OOP manner. The game is not perfect and has a few bugs but i will strive to work on improving it.
 
+
+
+## Gameplay 
+
+The goal of the game is to break all the bricks by bouncing the ball off the bat without touching the floor of the window. If you managed to break all 12 bricks, you win the game. If the ball hits the floor of the window, the game ends.
+<img src="gameplay.png"/>
+
+
+
 ## Game Winning Screenshot
 <img src="game_win.png"/>
 
