@@ -8,7 +8,11 @@ The game was created using a tutorial that i learnt from Udemy, it tries to simu
 
 The goal of the game is to break all the bricks by bouncing the ball off the bat without touching the floor of the window. If you managed to break all 12 bricks, you win the game. If the ball hits the floor of the window, the game ends.
 
-<img src="game_play.png"/>
+<img src="game_play.png"/
+
+Uploading game.mp4…
+
+
 
 
 ## Game Winning Screenshot
