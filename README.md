@@ -1,5 +1,8 @@
 # CPPND: Capstone BrickBreaker
 
+The game was created using a tutorial that i learnt from Udemy, it tries to simulate a classical 2D game known as brickbreaker. However, during the tutorial the code was written in a procedural manner without any OOP or using modern C++ techniques that was taught in Udacity. I really wanted to practice and push myself beyond my comfort level and practice as much as what i have learnt. My attempt was to create the game from scratch in a OOP manner. The game is not perfect and has a few bugs but i will strive to work on improving it.
+
+
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
