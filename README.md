@@ -48,7 +48,7 @@ https://user-images.githubusercontent.com/53950231/132941806-81515629-10cf-4e00-
 * :pushpin:**Rubric Points addressed:**
 
 > **1. Loops, Functions, I/O**
-> * ✔️ The project demonstrates an understanding of C++ functions and control structures. <Throughout the code base>
+> * ✔️ The project demonstrates an understanding of C++ functions and control structures. <Throughout the code base, line 33 onwards of GameObject.cpp>
 > * ✔️ The project reads data from a file and process the data, or the program writes data to a file. <See void Game::InitializeDataPath() line 26 in game.cpp>
 > * ✔️ The project accepts user input and processes the input. <See void Game::handlerEvents() line 179 in game.cpp>
 
@@ -58,7 +58,7 @@ https://user-images.githubusercontent.com/53950231/132941806-81515629-10cf-4e00-
 > * ✔️ Classes encapsulate behavior.
 
 > **3. Memory Management**
-> * ✔️ The project uses destructors appropriately.
+> * ✔️ The project uses destructors appropriately. <See game.cpp line 12 onwards>
 
 
 
