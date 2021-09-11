@@ -2,7 +2,6 @@
 #define GAMEOBJECT_H
 
 #include "SDL.h"
-#include "SDL_image.h"
 #include <iostream>
 #include "game.h"
 #include <memory>

@@ -3,7 +3,6 @@
 
 
 #include "SDL.h"
-#include "SDL_image.h"
 #include "TextureManager.h"
 #include "GameObject.h"
 #include "Map.h"
@@ -49,12 +48,12 @@ class Game {
     bool _isrunning;
 
     std::string _data_path;
-    std::string ball_bmp {"ball.bmp"};
-    std::string bat_bmp {"bat.bmp"};
-    std::string map_bmp {"bk.bmp"};
-    std::string brick_bmp {"brick.bmp"};
-    std::string win_bmp {"win.bmp"};
-    std::string lose_bmp {"lose.bmp"};
+    std::string ball_png {"ball.png"};
+    std::string bat_png {"bat.png"};
+    std::string map_png {"bk.png"};
+    std::string brick_png {"brick.png"};
+    std::string win_png {"win.png"};
+    std::string lose_png {"lose.png"};
 
     int spacing_x {25};
     int spacing_y {0};

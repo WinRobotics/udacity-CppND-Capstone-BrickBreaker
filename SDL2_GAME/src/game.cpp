@@ -1,6 +1,6 @@
 #include "game.h"
 
-//TODO remove this
+
 SDL_Renderer *Game::renderer = nullptr;
 
 Game::Game()
@@ -24,7 +24,7 @@ Game::~Game()
 
     for(int i=0;i<12;i++)
     {
-        delete _brick; // delete all bricks
+        delete _bricks[i]; // delete all bricks
     }
 
     SDL_QUIT;
@@ -78,21 +78,21 @@ void Game::init(const char* title, int xpos, int ypos, int height, int width, bo
         _isrunning= true; //defualt true 
 
     }
-    _ball = new GameObject(_data_path+ball_bmp,100,250,30,20);
+    _ball = new GameObject(_data_path+ball_png,100,250,30,20);
     _ball->setVelocity(1,1);
-    _bat = new GameObject(_data_path+bat_bmp,300,450,50,20);
-    _map = new Map(_data_path+map_bmp,0,0,640,480);
+    _bat = new GameObject(_data_path+bat_png,300,450,50,20);
+    _map = new Map(_data_path+map_png,0,0,640,480);
     _wall = new GameObject("",0,0,0,0); //all walls
     _lowerWall = new GameObject("",0,0,0,0); //lower walls
-    _win = new GameObject(_data_path+win_bmp,170,150,300,150); //win
-    _lose = new GameObject(_data_path+lose_bmp,170,150,300,150); //lose
+    _win = new GameObject(_data_path+win_png,170,150,300,150); //win
+    _lose = new GameObject(_data_path+lose_png,170,150,300,150); //lose
     
 
     //create a vector of bricks pointer obj game object
     for(int numb_of_bricks =0; numb_of_bricks<12; numb_of_bricks++)
     {
 
-        _brick = new GameObject(_data_path+brick_bmp,25,25,85,35); //x=25, y =50 first brick location
+        _brick = new GameObject(_data_path+brick_png,25,25,85,35); //x=25, y =50 first brick location
         if(numb_of_bricks<6)
         {
             _brick->destRect.x = spacing_x;

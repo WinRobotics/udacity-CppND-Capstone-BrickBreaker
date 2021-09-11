@@ -2,7 +2,6 @@
 #define MAP_H
 
 #include "SDL.h"
-#include "SDL_image.h"
 #include "TextureManager.h"
 #include <iostream>
 

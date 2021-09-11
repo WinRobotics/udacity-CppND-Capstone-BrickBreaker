@@ -7,6 +7,7 @@ TextureManager::TextureManager()
 
 TextureManager::~TextureManager()
 {
+    
 }
 
  SDL_Texture* TextureManager::LoadTexture(std::string texture)
